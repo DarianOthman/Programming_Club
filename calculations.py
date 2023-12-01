@@ -14,7 +14,7 @@ class Shape:
         self.name = name
 
 
-class Triangle(Shape, Calculations):
+class Triangle(Shape):
     def __init__(self, name, base, height, second_side, third_side):
         self.base = base
         self.height = height
@@ -31,7 +31,7 @@ class Triangle(Shape, Calculations):
         return self.base + self.second_side + self.third_side
 
 
-class Square(Shape, Calculations):
+class Square(Shape):
     def __init__(self, name, side):
         self.side = side
         super().__init__(name)
@@ -45,7 +45,7 @@ class Square(Shape, Calculations):
         return self.side * 4
 
 
-class Rectangle(Shape, Calculations):
+class Rectangle(Shape):
     def __init__(self, name, large, long):
         self.large = large
         self.long = long
@@ -58,7 +58,3 @@ class Rectangle(Shape, Calculations):
     @abstractmethod
     def what_perimeter(self):
         return 2 * (self.large + self.long)
-
-
-
-
