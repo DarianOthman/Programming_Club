@@ -1,69 +1,63 @@
-class Calculations:
-    def what_area(self, shapes):
-        print(f"Calculating the area")
-        print(f"====================")
-        for shape in shapes:
-            print(f"Area for your {shape.name}")
-            print(f"Area: {shape.what_area()}")
-
-    def what_perimeter(self, shapes):
-        print(f"Calculating the perimeter")
-        print(f"====================")
-        for shape in shapes:
-            print(f"Perimeter for your {shape.name}")
-            print(f"Perimeter: {shape.what_perimeter()}")
+from abc import ABC, abstractmethod
 
 
-class AreaTriangle:
-    def __init__(self, base, height, second_side, third_side):
+class Calculations(ABC):
+    def what_area(self):
+        pass
+
+    def what_perimeter(self):
+        pass
+
+    def __str__(self):
+        return f"Area: {self.what_area()}, Perimeter: {self.what_perimeter()}"
+
+
+class Shape:
+    def __init__(self, name):
+        self.name = name
+
+
+class Triangle(Shape, Calculations):
+    def __init__(self, name, base, height, second_side, third_side):
         self.base = base
         self.height = height
         self.second_side = second_side
         self.third_side = third_side
+        super().__init__(name)
 
+    @abstractmethod
     def what_area(self):
         return 0.5 * (self.base * self.height)
 
-
-class Perimeter_triangle:
-    def __init__(self, base, second_side, third_side):
-        self.base = base
-        self.second_side = second_side
-        self.third_side = third_side
-
+    @abstractmethod
     def what_perimeter(self):
         return self.base + self.second_side + self.third_side
 
 
-class Area_square:
-    def __init__(self, side):
+class Square(Shape, Calculations):
+    def __init__(self, name, side):
         self.side = side
+        super().__init__(name)
 
+    @abstractmethod
     def what_area(self):
         return self.side * self.side
 
-
-class Perimeter_square:
-    def __init__(self, side):
-        self.side = side
-
+    @abstractmethod
     def what_perimeter(self):
         return self.side * 4
 
 
-class Area_rectangle:
-    def __init__(self, large, long):
+class Rectangle(Shape, Calculations):
+    def __init__(self, name, large, long):
         self.large = large
         self.long = long
+        super().__init__(name)
 
+    @abstractmethod
     def what_area(self):
         return self.large * self.long
 
-
-class Perimeter_rectangle:
-    def __init__(self, large, long):
-        self.large = large
-        self.long = long
-
+    @abstractmethod
     def what_perimeter(self):
         return 2 * (self.large + self.long)
