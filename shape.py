@@ -1,4 +1,4 @@
-from calculations import (Area_triangle, Perimeter_triangle, Area_square, Perimeter_square, Area_rectangle,
+from calculations import (AreaTriangle, Perimeter_triangle, Area_square, Perimeter_square, Area_rectangle,
                           Perimeter_rectangle)
 
 
@@ -7,9 +7,9 @@ class Shape:
         self.name = name
 
 
-class Triangle(Shape, Area_triangle, Perimeter_triangle):
+class Triangle(Shape, AreaTriangle, Perimeter_triangle):
     def __init__(self, name, base, height, second_side, third_side):
-        Area_triangle.__init__(self, base, height, second_side, third_side)
+        AreaTriangle.__init__(self, base, height, second_side, third_side)
         Perimeter_triangle.__init__(self, base, second_side, third_side)
         super().__init__(name)
 

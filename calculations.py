@@ -14,7 +14,7 @@ class Calculations:
             print(f"Perimeter: {shape.what_perimeter()}")
 
 
-class Area_triangle:
+class AreaTriangle:
     def __init__(self, base, height, second_side, third_side):
         self.base = base
         self.height = height
