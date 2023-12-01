@@ -26,9 +26,8 @@ class Area_triangle:
 
 
 class Perimeter_triangle:
-    def __init__(self, base, height, second_side, third_side):
+    def __init__(self, base, second_side, third_side):
         self.base = base
-        self.height = height
         self.second_side = second_side
         self.third_side = third_side
 
