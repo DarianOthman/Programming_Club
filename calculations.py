@@ -8,9 +8,6 @@ class Calculations(ABC):
     def what_perimeter(self):
         pass
 
-    def __str__(self):
-        return f"Area: {self.what_area()}, Perimeter: {self.what_perimeter()}"
-
 
 class Shape:
     def __init__(self, name):
@@ -61,3 +58,7 @@ class Rectangle(Shape, Calculations):
     @abstractmethod
     def what_perimeter(self):
         return 2 * (self.large + self.long)
+
+
+
+
